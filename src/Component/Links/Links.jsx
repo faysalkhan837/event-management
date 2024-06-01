@@ -4,7 +4,7 @@
 
 const Links = ({route}) => {
   return (
-    <div>
+    <div className="flex items-center">
        <li>
        <a href={route.path}>{route.name}</a>
        </li>
