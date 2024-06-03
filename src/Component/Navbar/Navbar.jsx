@@ -9,14 +9,14 @@ const routes = [
   { id: 2, name: "About", path: "/about" },
   { id: 3, name: "Services", path: "/services" },
   { id: 4, name: "Contact", path: "/contact" },
-  { id: 5, name: "NotFound", path: "*" },
+  { id: 5, name: "signup", path: "/signup" },
 ];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
     <div>
-      <nav className="bg-[#FDFFAB] text-black p-4">
+      <nav className="bg-[#fad9a3] text-black p-4">
         <div className="flex  max-sm:flex-col flex-carousel-center justify-between">
           {/* Logo */}
           <div className="min-w-190 flex max-sm:justify-center items-center">
@@ -34,7 +34,7 @@ const Navbar = () => {
                 )}
               </div>
               <ul
-                className={`md:flex lg:ml-4  gap-5 bg-[#FDFFAB] p-5 
+                className={`md:flex lg:ml-4  gap-5 bg-[#fad9a3] p-5 
                                      absolute md:static duration-1000 rounded-b-xl
                                      ${
                                        open
