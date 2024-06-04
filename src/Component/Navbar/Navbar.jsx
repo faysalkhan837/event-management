@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import Links from "../Links/Links";
 import "./nav.css";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const routes = [
   { id: 1, name: "Home", path: "/" },
@@ -13,7 +14,15 @@ const routes = [
 ];
 
 const Navbar = () => {
+  const {user, logOut} = useContext(AuthContext);
   const [open, setOpen] = useState(false);
+
+  const handleLogout = () =>{
+    logOut()
+    .then(() =>{ })
+    .catch(error => console.log(error))
+  }
+
   return (
     <div>
       <nav className="bg-[#fad9a3] text-black p-4">
@@ -35,14 +44,9 @@ const Navbar = () => {
               </div>
               <ul
                 className={`md:flex lg:ml-4  gap-5 bg-[#fad9a3] p-5 
-                                     absolute md:static duration-1000 rounded-b-xl
-                                     ${
-                                       open
-                                         ? "-top-60"
-                                         : "max-md:top-20 max-[638px]:top-44"
-                                     }
-                                     `}
-              >
+                 absolute md:static duration-1000 rounded-b-xl
+                                     ${open ? "-top-60"
+                                         : "max-md:top-20 max-[638px]:top-44" }`}>
                 {routes.map((route) => (
                   <Links key={route.id} route={route}></Links>
                 ))}
@@ -54,22 +58,28 @@ const Navbar = () => {
               <div>
                 <img
                   className="object-cover w-10 h-10 rounded-full"
-                  src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=faceare&facepad=3&w=688&h=688&q=100"
-                  alt=""
-                />
+                  src={user ? user.photoURL : "" } alt=""/>
                 <div>
                   <h1 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">
-                    Mia John
+                    {user? user.displayName : ""}
                   </h1>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
-                    miajohn@merakiui.com
+                    {user? user.email : ""}
                   </p>
                 </div>
               </div>
               <div>
-                <button className="px-3 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-slate-300 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80 hover:text-black">
+                {
+                  user ? 
+                  <button onClick={handleLogout} className="px-3 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-slate-300 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80 hover:text-black">
                   log Out
-                </button>
+                </button> : 
+                <Link to='/login'>
+                  <button className="px-3 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-slate-300 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80 hover:text-black">
+                  log In
+              </button>
+                </Link> 
+                }
               </div>
             </div>
           </div>

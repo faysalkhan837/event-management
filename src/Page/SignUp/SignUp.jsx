@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 
 
 const SignUp = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, googleSignIn } = useContext(AuthContext);
 
     const handleSignUp = event => {
         event.preventDefault();
@@ -30,6 +30,21 @@ const SignUp = () => {
             .catch(error => {
                 console.log(error);
             })
+    }
+    const handleGoogleLogin = () =>{
+        googleSignIn()
+        .then(result => {
+            const user = result.user;
+            if (user) {
+                Swal.fire({
+                    title: "Good job!",
+                    text: "You clicked the button!",
+                    icon: "success"
+                });
+            }
+            console.log(user)
+        })
+        .catch(error => console.log(error))
     }
 
 
@@ -81,7 +96,7 @@ const SignUp = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <button type="submit" className="w-full items-center block px-10 py-3.5 text-base font-medium text-center text-blue-600 transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                                    <button onClick={handleGoogleLogin} type="submit" className="w-full items-center block px-10 py-3.5 text-base font-medium text-center text-blue-600 transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                                         <div className="flex items-center justify-center">
                                             <svg xmlns="http://www.w3.org/2000/svg" xlinkHref="http://www.w3.org/1999/xlink" className="w-6 h-6" viewBox="0 0 48 48">
                                                 <defs>

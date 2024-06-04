@@ -1,14 +1,47 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Component/Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
+
+    const {loginUser, googleSignIn} = useContext(AuthContext);
 
     const handleLogin = event =>{
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log( email, password);
 
+        loginUser(email, password)
+        .then(result => {
+            const user = result.user;
+            console.log(user)
+            if (user) {
+                Swal.fire({
+                    title: "Good to sea you again!",
+                    text: "Thanks for come back again!",
+                    icon: "success"
+                });
+                form.reset();
+            }
+        })
+        .catch(error => console.log(error))
+    }
+    const handleGoogleLogin = () =>{
+        googleSignIn()
+        .then(result => {
+            const user = result.user;
+            if (user) {
+                Swal.fire({
+                    title: "Good to sea you again!",
+                    text: "Thanks for come back again!",
+                    icon: "success"
+                });
+            }
+            console.log(user)
+        })
+        .catch(error => console.log(error))
     }
     return (
         <section>
@@ -52,7 +85,7 @@ const Login = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <button type="submit" className="w-full items-center block px-10 py-3.5 text-base font-medium text-center text-blue-600 transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                                    <button onClick={handleGoogleLogin} type="submit" className="w-full items-center block px-10 py-3.5 text-base font-medium text-center text-blue-600 transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                                         <div className="flex items-center justify-center">
                                             <svg xmlns="http://www.w3.org/2000/svg" xlinkHref="http://www.w3.org/1999/xlink" className="w-6 h-6" viewBox="0 0 48 48">
                                                 <defs>
