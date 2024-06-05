@@ -31,20 +31,20 @@ const SignUp = () => {
                 console.log(error);
             })
     }
-    const handleGoogleLogin = () =>{
+    const handleGoogleLogin = () => {
         googleSignIn()
-        .then(result => {
-            const user = result.user;
-            if (user) {
-                Swal.fire({
-                    title: "Good job!",
-                    text: "You clicked the button!",
-                    icon: "success"
-                });
-            }
-            console.log(user)
-        })
-        .catch(error => console.log(error))
+            .then(result => {
+                const user = result.user;
+                if (user) {
+                    Swal.fire({
+                        title: "Good job!",
+                        text: "You clicked the button!",
+                        icon: "success"
+                    });
+                }
+                console.log(user)
+            })
+            .catch(error => console.log(error))
     }
 
 

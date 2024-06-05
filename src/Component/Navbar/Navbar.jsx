@@ -58,7 +58,7 @@ const Navbar = () => {
               <div>
                 <img
                   className="object-cover w-10 h-10 rounded-full"
-                  src={user ? user.photoURL : "" } alt=""/>
+                  src={user ? user.photoURL : "https://source.unsplash.com/40x40/?portrait?1" }/>
                 <div>
                   <h1 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">
                     {user? user.displayName : ""}
@@ -73,11 +73,11 @@ const Navbar = () => {
                   user ? 
                   <button onClick={handleLogout} className="px-3 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-slate-300 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80 hover:text-black">
                   log Out
-                </button> : 
+                  </button> : 
                 <Link to='/login'>
                   <button className="px-3 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-slate-300 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80 hover:text-black">
                   log In
-              </button>
+                  </button>
                 </Link> 
                 }
               </div>
