@@ -1,11 +1,14 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Component/Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Login = () => {
 
     const {loginUser, googleSignIn} = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+    console.log(location)
 
     const handleLogin = event =>{
         event.preventDefault();
@@ -23,10 +26,22 @@ const Login = () => {
                     text: "Thanks for come back again!",
                     icon: "success"
                 });
-                form.reset();
+                navigate(location?.state ? location?.state : '/');
+                
+            }
+            
+        })
+        .catch(error => {
+            if (error){
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Wrong password!",
+                    footer: '<a href="#">Why do I have this issue?</a>'
+                  });
+                  form.reset();
             }
         })
-        .catch(error => console.log(error))
     }
     const handleGoogleLogin = () =>{
         googleSignIn()
@@ -38,6 +53,7 @@ const Login = () => {
                     text: "Thanks for come back again!",
                     icon: "success"
                 });
+                navigate(location?.state ? location?.state : '/');
             }
             console.log(user)
         })

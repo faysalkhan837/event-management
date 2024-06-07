@@ -1,19 +1,33 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Component/Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 
 const SignUp = () => {
     const { createUser, googleSignIn } = useContext(AuthContext);
+    const [registrationError, setRegistrationError] = useState('');
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const handleSignUp = event => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
+        const cheaked = form.checkbox.checked;
         const password = form.password.value;
 
+        if(password.length < 6){
+            setRegistrationError("password must be six carekter")
+        }
+        else if(!/[A-Z]/.test(password)){
+            setRegistrationError('must be one capitale later')
+        }
+        else if(!cheaked){
+            setRegistrationError('you must cheak on terms and condition')
+            return ;
+        }
         createUser(email, password)
             .then(result => {
                 const user = result.user;
@@ -23,6 +37,7 @@ const SignUp = () => {
                         text: "You clicked the button!",
                         icon: "success"
                     });
+                    navigate(location?.state ? location?.state : '/');
                     form.reset();
                 }
                 console.log(user, name);
@@ -41,6 +56,7 @@ const SignUp = () => {
                         text: "You clicked the button!",
                         icon: "success"
                     });
+                    navigate(location?.state ? location?.state : '/');
                 }
                 console.log(user)
             })
@@ -79,8 +95,9 @@ const SignUp = () => {
                                             <input id="password" name="password" type="password" autoComplete="current-password" required placeholder="Your Password" className="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg text-neutral-600 bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" />
                                         </div>
                                     </div>
-
-
+                                        <h1 className="text-red-500">{registrationError}</h1>
+                                        <input type="checkbox" name="checkbox" id="cheak" />
+                                        <label className="ml-4" htmlFor="cheak"><a href="https://en.wikipedia.org/wiki/Terms_of_service" target="_blank">Terms and condition</a></label>
 
                                     <div>
                                         <button type="submit" className="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-blue-600 rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Sign Up</button>

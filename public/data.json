@@ -5,7 +5,8 @@
       "smallDes":"Management for weddings involves meticulous planning, coordinating vendors, managing schedules, and ensuring a seamless celebration.",
       "description": "Wedding event management involves orchestrating every detail of a couple's special day, from venue selection and decor to catering and entertainment. Event planners work closely with clients to bring their vision to life, ensuring a seamless and memorable celebration. Their expertise ensures that weddings are stress-free and picture-perfect for the happy couple.",
       "price": 450.00,
-      "image": "https://i.ibb.co/wM0bWmb/weading-photo.jpg"
+      "image": "https://i.ibb.co/VYDhGc8/weadingbnbn.png",
+      "cardImg":"https://i.ibb.co/31RLYxK/Wedding-Card.png"
     },
     {
       "id": 2,
@@ -13,7 +14,8 @@
       "smallDes":"Managing birthday events entails planning activities, handling logistics, coordinating with vendors, and creating unforgettable experiences.",
       "description": "Birthday event management revolves around planning and executing celebrations to mark a person's special day. Event organizers coordinate venues, themes, decorations, cakes, entertainment, and guest lists to create memorable experiences. They aim to make the birthday person feel cherished while ensuring all logistics run smoothly for a joyful celebration.",
       "price": 250.00,
-      "image": "https://i.ibb.co/9H91PdG/birthday-photo.jpg"
+      "image": "https://i.ibb.co/FBrLfy1/birth-Day-Ban.jpg",
+      "cardImg":"https://i.ibb.co/pPwvWYq/birthday-Card.png"
     },
     {
       "id": 3,
@@ -21,7 +23,8 @@
       "smallDes":"Anniversary event management involves organizing themes, coordinating vendors, managing timelines, and creating memorable celebrations.",
       "description": "Anniversary event management focuses on commemorating a couple's enduring love and commitment. Event planners coordinate venue selection, entertainment, and personalized touches to create a meaningful and romantic celebration. Their goal is to craft an unforgettable experience that honors the couple's journey while event.",
       "price": 270.00,
-      "image": "https://i.ibb.co/f4DJhXt/anniversaries-photo.jpg"
+      "image": "https://i.ibb.co/TgJkrvB/anniversariesbn.png",
+      "cardImg":"https://i.ibb.co/LpqTNWf/Anniversaries-Card.png"
     },
     {
       "id": 4,
@@ -29,7 +32,8 @@
       "smallDes":"Engagement event planning entails organizing logistics, liaising with vendors, setting timelines, and crafting a memorable celebration.",
       "description": "Engagement event management involves crafting a memorable and intimate occasion to celebrate a couple's decision to marry. Event planners work on venue selection, decor, catering, and engagement party themes. They strive to create a warm and joyful atmosphere for friends and family to share in the couple's excitement, making the engagement a cherished memory.",
       "price": 400.00,
-      "image": "https://i.ibb.co/TkWGwRL/engagement-photo.jpg"
+      "image": "https://i.ibb.co/zNgZ1mS/Engagementbn.pngr",
+      "cardImg":"https://i.ibb.co/G5D4CQc/Engagement-Card.png"
     },
     {
       "id": 5,
@@ -37,7 +41,8 @@
       "smallDes":"Retirement event management involves planning festivities, coordinating with vendors, arranging speeches, and celebrating a career's achievements.",
       "description": "Retirement event management centers on planning a farewell celebration to honor an individual's career achievements and transition into retirement. Event organizers coordinate venues, speeches, decorations, and activities to create a meaningful and enjoyable event. The goal is to celebrate the retiree's contributions while providing a memorable send-off as they embark on a new chapter in life.",
       "price": 200.00,
-      "image": "https://i.ibb.co/KjVbnKg/Retirement-photo.jpg"
+      "image": "https://i.ibb.co/jG0cL1X/Retirementbn.png",
+      "cardImg":"https://i.ibb.co/4KDmyxZ/Retirement-Card.png"
     },
     {
       "id": 6,
@@ -45,6 +50,7 @@
       "smallDes":"Baby shower event management includes planning activities, decorating, coordinating vendors, and ensuring a joyful celebration for the parents-to-be.",
       "description": "Baby shower event management involves organizing a joyous gathering to celebrate an expectant mother and her impending arrival. Event planners arrange venues, decorations, games, and gifts to create a warm and welcoming atmosphere. The focus is on honoring the mom-to-be, sharing parenting tips, and showering her with love and well-wishes as she prepares for parenthood.",
       "price": 250.00,
-      "image": "https://i.ibb.co/b584CdS/Baby-shower-photo.jpg"
+      "image": "https://i.ibb.co/hKBdH4d/baby-showerbn.png",
+      "cardImg":"https://i.ibb.co/C1vwTr2/Baby-shower-Card.png"
     }
   ]

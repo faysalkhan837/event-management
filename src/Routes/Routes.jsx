@@ -5,6 +5,7 @@ import SignUp from "../Page/SignUp/SignUp";
 import Login from "../Page/Login/Login";
 import ErrorPage from "../Component/ErrorPage/ErrorPage";
 import Details from "../Page/Details/Details";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -16,7 +17,7 @@ export const router = createBrowserRouter([
         children:[
             {
                 path:'/',
-                loader: () => fetch('data.json'),
+                loader: () => fetch('/data.json'),
                 element:<Home></Home>
             },
             {
@@ -28,8 +29,9 @@ export const router = createBrowserRouter([
                 element:<Login></Login>
             },
             {
-                path:'/details',
-                element:<Details></Details>,
+                path:'/details/:id',
+                element:<PrivateRoute><Details></Details></PrivateRoute>,
+                loader: () => fetch('/data.json')
 
             }
         ]
