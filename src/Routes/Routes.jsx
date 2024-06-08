@@ -7,6 +7,7 @@ import ErrorPage from "../Component/ErrorPage/ErrorPage";
 import Details from "../Page/Details/Details";
 import PrivateRoute from "./PrivateRoute";
 import ContactUs from "../Page/ContactUs/ContactUs";
+import AboutUs from "../Page/AboustUs/AboutUs";
 
 
 
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
             {
                 path: '/contactUs',
                 element: <PrivateRoute><ContactUs></ContactUs></PrivateRoute>
+            },
+            {
+                path:'/aboutUs',
+                element:<PrivateRoute><AboutUs></AboutUs></PrivateRoute>
             }
         ]
     }

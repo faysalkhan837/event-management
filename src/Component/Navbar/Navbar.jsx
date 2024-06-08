@@ -7,9 +7,9 @@ import { AuthContext } from "../Provider/AuthProvider";
 
 const routes = [
   { id: 1, name: "Home", path: "/" },
-  { id: 2, name: "About", path: "/about" },
+  { id: 2, name: "About", path: "/aboutUs" },
   { id: 3, name: "Services", path: "/services" },
-  { id: 4, name: "Contact Us", path: "/contactUs" },
+  { id: 4, name: "Contact", path: "/contactUs" },
   { id: 5, name: "signup", path: "/signup" },
 ];
 
@@ -25,7 +25,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className="bg-[#fad9a3] text-black p-4">
+      <nav className="bg-[#fad9a3] text-black md:p-4">
         <div className="flex  max-sm:flex-col flex-carousel-center justify-between">
           {/* Logo */}
           <div className="min-w-190 flex max-sm:justify-center items-center">
@@ -34,7 +34,7 @@ const Navbar = () => {
 
           <div className="flex justify-between min-w-[70%]">
             {/* drop down list */}
-            <div className="flex md:justify-center ">
+            <div className="flex md:justify-center z-[1000]">
               <div onClick={() => setOpen(!open)} className="md:hidden h-6 p-5">
                 {open === true ? (
                   <AiOutlineMenu className="text-2xl "></AiOutlineMenu>
@@ -43,10 +43,10 @@ const Navbar = () => {
                 )}
               </div>
               <ul
-                className={`md:flex lg:ml-4  gap-5 bg-[#fad9a3] p-5 
+                className={`md:flex lg:ml-4  gap-5 bg-[#fad9a3] px-3 py-5 
                  absolute md:static duration-1000 rounded-b-xl
                                      ${open ? "-top-60"
-                                         : "max-md:top-20 max-[638px]:top-44" }`}>
+                                         : "max-md:top-20 max-[638px]:top-[148px]" }`}>
                 {routes.map((route) => (
                   <Links key={route.id} route={route}></Links>
                 ))}
