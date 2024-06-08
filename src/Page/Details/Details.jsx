@@ -18,8 +18,9 @@ const Details = () => {
 
     return (
         <div className="bg-[#fdfddb]">
-            <Marquee autoFill={true}>
-                <img src="/logo1.png" alt="" />
+            <Marquee autoFill={true} pauseOnHover={true}>
+                <img src="/logo1.png"/>
+                {/* <video src="/uni.mp4" autoPlay muted loop></video> */}
             </Marquee>
             <DetailsCard eventDetails={eventDetails}></DetailsCard>
         </div>

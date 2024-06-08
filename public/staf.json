@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Alice Johnson",
+    "position": "Event Manager",
+    "description": "Alice has over 10 years of experience in managing corporate and social events, ensuring every detail is meticulously planned.",
+    "photo_url": "https://i.ibb.co/Wx7fPNx/man1.png"
+  },
+  {
+    "name": "Bob Smith",
+    "position": "Marketing Director",
+    "description": "Bob specializes in event marketing strategies that maximize attendance and engagement, with a focus on digital marketing.",
+    "photo_url": "https://i.ibb.co/YcD5zKR/man2.png"
+  },
+  {
+    "name": "Catherine Lee",
+    "position": "Creative Director",
+    "description": "Catherine brings creativity to every event, designing visually stunning and memorable experiences for clients.",
+    "photo_url": "https://i.ibb.co/JjXBBPN/lady.png"
+  },
+  {
+    "name": "David Brown",
+    "position": "Logistics Coordinator",
+    "description": "David ensures smooth operations and logistics, coordinating with vendors and venues to deliver seamless events.",
+    "photo_url": "https://i.ibb.co/ZmVmHrc/man3.png"
+  }
+]

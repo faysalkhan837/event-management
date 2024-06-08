@@ -18,15 +18,21 @@ const SignUp = () => {
         const cheaked = form.checkbox.checked;
         const password = form.password.value;
 
-        if(password.length < 6){
+        if (password.length < 6) {
             setRegistrationError("password must be six carekter")
+            return;
         }
-        else if(!/[A-Z]/.test(password)){
+        else if (!/[A-Z]/.test(password)) {
             setRegistrationError('must be one capitale later')
+            return;
         }
-        else if(!cheaked){
+        else if (!/[#$@!%&*?]/.test(password)) {
+            setRegistrationError('must be one special carrecter')
+            return;
+        }
+        else if (!cheaked) {
             setRegistrationError('you must cheak on terms and condition')
-            return ;
+            return;
         }
         createUser(email, password)
             .then(result => {
@@ -95,9 +101,9 @@ const SignUp = () => {
                                             <input id="password" name="password" type="password" autoComplete="current-password" required placeholder="Your Password" className="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg text-neutral-600 bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" />
                                         </div>
                                     </div>
-                                        <h1 className="text-red-500">{registrationError}</h1>
-                                        <input type="checkbox" name="checkbox" id="cheak" />
-                                        <label className="ml-4" htmlFor="cheak"><a href="https://en.wikipedia.org/wiki/Terms_of_service" target="_blank">Terms and condition</a></label>
+                                    <h1 className="text-red-500">{registrationError}</h1>
+                                    <input type="checkbox" name="checkbox" id="cheak" />
+                                    <label className="ml-4" htmlFor="cheak"><a href="https://en.wikipedia.org/wiki/Terms_of_service" target="_blank">Terms and condition</a></label>
 
                                     <div>
                                         <button type="submit" className="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-blue-600 rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Sign Up</button>
@@ -136,7 +142,7 @@ const SignUp = () => {
                     </div>
                 </div>
                 <div className="relative flex-1 hidden w-0 overflow-hidden lg:block">
-                    <img className="absolute inset-0 object-cover w-full h-full" src="/assets/images/placeholders/rectangleWide.png" alt="" />
+                    <img className="absolute inset-0 object-cover w-full h-full" src="/signup.png" alt="" />
                 </div>
             </div>
         </section>

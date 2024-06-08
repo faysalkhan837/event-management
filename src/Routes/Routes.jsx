@@ -6,33 +6,38 @@ import Login from "../Page/Login/Login";
 import ErrorPage from "../Component/ErrorPage/ErrorPage";
 import Details from "../Page/Details/Details";
 import PrivateRoute from "./PrivateRoute";
+import ContactUs from "../Page/ContactUs/ContactUs";
 
 
 
 export const router = createBrowserRouter([
     {
-        path:'/',
-        element:<Main></Main>,
-        errorElement:<ErrorPage></ErrorPage>,
-        children:[
+        path: '/',
+        element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
+        children: [
             {
-                path:'/',
+                path: '/',
                 loader: () => fetch('/data.json'),
-                element:<Home></Home>
+                element: <Home></Home>
             },
             {
-                path:'/signup',
-                element:<SignUp></SignUp>
+                path: '/signup',
+                element: <SignUp></SignUp>
             },
             {
-                path:'/login',
-                element:<Login></Login>
+                path: '/login',
+                element: <Login></Login>
             },
             {
-                path:'/details/:id',
-                element:<PrivateRoute><Details></Details></PrivateRoute>,
+                path: '/details/:id',
+                element: <PrivateRoute><Details></Details></PrivateRoute>,
                 loader: () => fetch('/data.json')
 
+            },
+            {
+                path: '/contactUs',
+                element: <PrivateRoute><ContactUs></ContactUs></PrivateRoute>
             }
         ]
     }
